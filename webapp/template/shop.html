@@ -1,0 +1,75 @@
+<header class="text-center">
+    <span>商城</span>
+</header>
+<style>
+body{
+	overflow:hidden;
+}
+</style>
+<div class="clear-left search ">
+    <div class="row">
+      <div class="col-xs-9">
+        <input type="search" class="form-control" ng-model="keyword" placeholder="商品搜索">
+      </div>
+      <div class="col-xs-3 ">
+        <span ng-click="search()" class="form-control glyphicon glyphicon-search" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+<div class="container-fluid goods-list" style="background:#eaeaea;">
+  <div class="row ">
+    <div class="col-xs-3 clear-left left-menu">
+	    <ul class="list-group col-xs-4">
+	      <li class="list-group-item selectactive">商品分类</li>
+		  <li ng-repeat="item in categories"  ng-click="selectCate(item)" ng-class="{'bg-1':cate.id==item.id}" class="list-group-item ">{{item.name}}</li>
+		</ul>
+    </div>
+    <div class="col-xs-9 " style="margin-right:-15px;" >
+    <div class="pagenav">夏季作物</div>
+    <div class="right-main" style="height:400px;overflow-y:scroll;">
+     <div ng-repeat="item in goodses" class="media item">
+	      <div class="media-left">
+	       <a href="#">
+	        <img class="media-object " style="width:80px;height:80px;margin:2px;" ng-src="{{item.img}}" alt="...">
+	       </a>
+	     </div>
+	    <div class="media-body">
+            <div >
+                <p class="goods-item-title">{{item.name}}</p>
+                <p class="goods-item-price">商城价:￥{{item.sell_price}}</p>
+                <p class="goods-price"><del>市场价￥{{item.market_price}}</del></p>
+                <div >
+                    <img src="img/add.png" ng-click="addcart(item)" class="pull-right add-cart" >
+                    <span class="pull-right cart-quantity-icon" ng-bind="globleCart[item.goods_id]"></span>
+                </div>
+            </div>
+            
+         </div>
+     </div>
+    
+    </div> 
+    </div>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+     <div class="row menu">
+                <div class="col-xs-3" onclick="window.location.href='#/home/index'">
+                    <div ><img class="menu-icon" src="/img/index02.png" >首页</div>
+                </div>
+                <div class="col-xs-3" onclick="window.location.href='#/home/shop'">
+                    <div ><img src="/img/index02.png" class="menu-icon">商城</div>
+                </div>
+                <div class="col-xs-3 " onclick="window.location.href='#/cart/list'">
+                    <div ><img src="/img/order.png" class="menu-icon">购物车</div>
+                </div>
+                <div class="col-xs-3" onclick="window.location.href='#/me'">
+                    <div ><img src="/img/login_username.png" class="menu-icon"><span>我的</span></div>
+                </div>
+            </div>
+  </div>
+</nav>
+
+

@@ -1,0 +1,40 @@
+var app = angular.module('app',[]);
+
+app.controller('categoryController', ['$scope',
+function($scope){
+$scope.two_cates = [];
+$scope.third_cates = [];
+$scope.categories =[{id:1,name:"fengshuang1"},{id:2,name:"fengshuang2"},{id:3,name:"fengshuang3"}]
+$scope.num = 1;//默认12栅格显示 为2是我两排 3默认是4排 4默认是4排显示
+$scope.children_cate = function(){
+	$scope.category_id = $scope.category.id;
+	$("#post_meta_id").val($scope.category.id);
+
+	$.get('/topic/default/category',{id:$scope.category_id},function(res){
+		$scope.two_cates = res;
+		$scope.third_cates=[];
+		if(res.length>0){
+			$scope.num = 2;
+		}else{
+			$scope.num = 1;
+		}
+		
+		$scope.$apply();
+	},'json');
+}
+$scope.children_cate1 = function(category1){
+	$("#post_meta_id").val(category1);
+	$.get('/topic/default/category',{id:category1},function(res){
+		$scope.third_cates = res;
+		if(res.length>0){
+			$scope.num = 3;
+		}else{
+			$scope.num = 2;
+		}
+		$scope.$apply();
+	},'json');
+}
+$scope.children_cate2 = function(category2){
+	$("#post_meta_id").val(category2);
+}
+}]);

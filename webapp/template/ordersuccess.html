@@ -1,0 +1,33 @@
+<header class="text-center">
+        <span style="margin-top:3px;" class="glyphicon glyphicon-menu-left pull-left"></span><span>订单成功提示</span>
+</header>
+<div class="container-fluid" style="">
+  <div class="col-xs-12 ">
+    <div class="text-center" style="line-height:100px"><div class="radius-100"><span  class="glyphicon glyphicon-shopping-cart" aria-hidden="true">订单成功</span></div></div>
+    <div style="line-height:32px;" class="text-center"><span class="item-title">订单有确定成功，我们及时为你筹备！请保持手机畅通</span></div>
+    <div  ><button ng-click="go_order()" class="btn btn-danger btn-block">查看订单</button></div>
+    <div  class="top15" ><button ng-click="go_shop()" class="btn btn-success btn-block">继续购买</button></div>
+    
+  </div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+     <div class="row menu">
+                <div class="col-xs-3" onclick="window.location.href='#/home/index'">
+                    <div ><img class="menu-icon" src="/img/index02.png" >首页</div>
+                </div>
+                <div class="col-xs-3" onclick="window.location.href='#/home/shop'">
+                    <div ><img src="/img/index02.png" class="menu-icon">商城</div>
+                </div>
+                <div class="col-xs-3 " onclick="window.location.href='#/cart/list'">
+                    <div ><img src="/img/order.png" class="menu-icon">购物车</div>
+                </div>
+                <div class="col-xs-3" onclick="window.location.href='#/me'">
+                    <div ><img src="/img/login_username.png" class="menu-icon"><span>我的</span></div>
+                </div>
+            </div>
+  </div>
+</nav>
+

@@ -1,0 +1,41 @@
+<header class="text-center">
+        <span style="margin-top:3px;" class="glyphicon glyphicon-menu-left pull-left"></span><span>购物车</span>
+</header>
+<div class="container-fluid" style="overflow:auto;">
+  <div class="row ">
+    <div class="col-xs-12" >
+    <div class="right-main">
+     <div class="media cart-item" ng-repeat="item in carts">
+	      <div class="media-left">
+	       <a href="#">
+	        <img class="media-object" ng-src="{{item.img}}" alt="...">
+	       </a>
+	     </div>
+	    <div class="media-body">
+            <div>
+                <p class="goods-item-title" ng-bind="{{item.goods_name}}"></p>
+                <p class="goods-item-price">商城价:￥{{item.real_sell_price}}</p>
+                <p class="goods-price"><del>市场价￥{{item.market_price}}</del></p>
+            </div>
+            <div><img src="img/add.png" ng-click="updatecart(item,1)" class="pull-right add-cart"></div>
+            <span class="pull-right cart-input">{{item.goods_number}}</span>
+            <div><img src="img/del.png" ng-click="updatecart(item,2)" class="pull-right decrease-cart"></div>
+         </div>
+     </div>
+    </div> 
+    </div>
+  </div>
+  <div style="height:100px;"></div>
+</div>
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <div class="col-xs-12 cart-total">
+        <div class="col-xs-6"><span>{{min_cost}}元起送</span></div>
+        <div class="col-xs-3 goods-item-price"><span>￥{{total}}</span></div>
+        <div class="col-xs-3 pull-right"><button ng-click="balance()" ng-disabled="total<min_cost" ng-class="{'btn-default':total<min_cost}" class="btn btn-success">结算</button></div>
+    </div>
+  </div>
+</nav>
+

@@ -1,0 +1,17 @@
+<header class="text-center">
+        <span onclick="window.location.href='#/me'" style="margin-top:3px;" class="glyphicon glyphicon-menu-left pull-left"></span>
+        <span>地址管理</span>
+</header>
+<div class="container-fluid" style="">
+  <div class="row item-div line-height72">
+    <div class="col-xs-3"><span  class="glyphicon glyphicon-plus-sign"></span></div>
+    <div onclick="window.location.href='#/user/addressadd'" class="col-xs-6 item-title"><span>添加收货地址</span></div>
+  </div>
+  <div ng-click="selectAddress(item)"  ng-repeat="item in addresses" class="row item-div">
+	  <div class="col-xs-3">{{item.accept_name}}</div>
+	  <div class="col-xs-9 item-title">{{item.mobile}}</div>
+	  <div class="col-xs-12 color3 text-left ">{{item.region+item.address}}</div>
+  </div>
+</div>
+
+

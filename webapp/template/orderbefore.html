@@ -1,0 +1,55 @@
+<header class="text-center">
+<span onclick="window.location.href='#/cart/list'" style="margin-top:3px;" class="glyphicon glyphicon-menu-left pull-left"></span>
+<span>结算页</span>
+</header>
+<div class="container-fluid" style="background:#fff;">
+  <div class="row ">
+    <div class="col-xs-12 item-div" ng-if="address">
+        <div><span class="col-xs-3 item-title">收货人</span>
+        <span class="col-xs-9 item-content">{{address.accept_name}}</span></div>
+        <div ng-click="changeAddress()"><span class="col-xs-3 item-title">电话</span>
+          <span class="col-xs-7 item-content">{{address.mobile}}</span>
+          <span class="col-xs-1 item_icon glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+        </div>
+        <div><span class="col-xs-3 item-title">地址</span>
+        <span class="col-xs-9 item-content">{{address.address}}</span></div>
+    </div>
+    
+	   <div ng-if="!address" ng-click="addressAdd()" class="row item-div line-height72">
+	    <div class="col-xs-3"><span  class="glyphicon glyphicon-plus-sign"></span></div>
+	    <div class="col-xs-6 item-title"><span>添加收货地址</span></div>
+	  </div>
+   
+	    
+      <div class="col-xs-12 item-div" >
+        <div class="item-header"><img class="img16" src="/img/index02.png">商品</div>
+        <div class="col-xs-3"><img class="item-img" ng-src="{{carts[0].img}}"></div>
+        <div class="col-xs-3"><img class="item-img" ng-src="{{carts[1].img}}"></div>
+        <div class="col-xs-5 pull-right">
+               <span class=" line-height72">共{{cart_count}}件</span>
+         </div>
+    </div>
+    
+    
+    <div class="col-xs-12 item-div" >
+        <div class="item-header"><img class="img16" src="/img/index02.png">支付方式</div>
+        <div class="col-xs-3 pay-item" ng-click="selectPayment(item)" ng-class="{'bg-1':payment_id==item.id || item.id==0}" ng-repeat="item in payments"><span class="glyphicon glyphicon-scale" aria-hidden="true"></span><span>{{item.name}}</span></div>
+    </div>
+  
+     <div class="col-xs-12 item-div" >
+     
+        <div class="col-xs-12"><span class="col-xs-4 item-title">商品总价</span><span class="col-xs-8 item-content color1">￥{{goods_total}}</span></div>
+        <div class="col-xs-12"><span class="col-xs-4 item-title">配送费</span>
+          <span class="col-xs-8 item-content color1">￥{{freight}}</span>
+        </div>
+        <!--  <div class="col-xs-12"><span class="col-xs-4 item-title">地址</span><span class="col-xs-8 item-content color1">麻园转盘103号</span></div> -->
+    </div>
+    <div class="col-xs-12 cart-total">
+        <div class="col-xs-6"><span>{{min_cost}}元起送</span></div>
+        <div class="col-xs-3 goods-item-price"><span ">￥{{goods_total+freight}}</span></div>
+        <div class="col-xs-3 pull-right"><button ng-click="create()"  ng-class="{'disabled':total<min_cost}" class="btn btn-success">结算</button></div>
+    </div>
+  </div>
+</div>
+
+
